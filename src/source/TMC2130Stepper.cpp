@@ -70,7 +70,7 @@ void TMC2130Stepper::beginTransaction() {
     if (TMC_HW_SPI != nullptr) {
       TMC_HW_SPI->beginTransaction(SPISettings(spi_speed, MSBFIRST, SPI_MODE3));
     } else {
-      spi.beginTransaction(SPISettings(spi_speed, MSBFIRST, SPI_MODE3));
+      SPI.beginTransaction(SPISettings(spi_speed, MSBFIRST, SPI_MODE3));
     }
   }
 }
@@ -80,7 +80,7 @@ void TMC2130Stepper::endTransaction() {
     if (TMC_HW_SPI != nullptr) {
       TMC_HW_SPI->endTransaction();
     } else {
-      spi.endTransaction();
+      SPI.endTransaction();
     }
   }
 }
