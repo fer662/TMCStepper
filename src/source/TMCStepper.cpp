@@ -1,6 +1,8 @@
 #include "TMCStepper.h"
 #include "TMC_MACROS.h"
 
+static SPIClass *TMC_HW_SPI = nullptr;
+
 /*
   Requested current = mA = I_rms/1000
   Equation for current:

@@ -119,6 +119,7 @@ class TMCStepper {
 		int16_t cur_a();
 		int16_t cur_b();
 
+		static void setSPI(SPIClass *spi) { TMC_HW_SPI = spi; }
 	protected:
 		TMCStepper(float RS) : Rsense(RS) {};
 		INIT_REGISTER(IHOLD_IRUN){{.sr=0}};	// 32b
@@ -147,6 +148,7 @@ class TMCStepper {
 
 		const float Rsense;
 		float holdMultiplier = 0.5;
+		static SPIClass *TMC_HW_SPI;
 };
 
 class TMC2130Stepper : public TMCStepper {
